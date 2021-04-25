@@ -47,21 +47,25 @@ var penalty = 5;
 var quizCountdown = 100;
 
 function startTimer(){
-    var quizCountdown = 100;
+    quizCountdown = 100;
     console.log('timer suppose to go')
     var timer = setInterval(function(){
         quizCountdown--;
-        document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
+        quizTime.innerHTML='00:'+quizCountdown;
         if (quizCountdown < 0) {
             clearInterval(timer);
             alert("Time is up!")
         }
-    }, 100);
+    }, 1000);
 }
-document.getElementById('incorrect').addEventListener('click', function() {
-    quizCountdown -= 5;
-    document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
-});
+// document.getElementById('incorrect').addEventListener('click', function() {
+//     quizCountdown -= 5;
+//     document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
+// });
+document.getElementById("start").addEventListener("click", function() {
+    document.getElementById("demo").innerHTML = "Hello World";
+  });
+
 startTimer();
 
 function displayQuestion () {
