@@ -33,7 +33,7 @@ var questionIndex = 0
 var questionDiv = document.getElementById("questions")
 
 
-var quizTime = document.getElementById("quiz-time")
+var quizTime = document.getElementById("quizTime")
 var timer = document.getElementById("start")
 var container = document.getElementById("container")
 
@@ -44,26 +44,25 @@ var startInterval = 0;
 
 var penalty = 5;
 
-(function() {
-    var quizTime = 100;
-    function startTimer(){
-        console.log('timer suppose to go')
-        var timer = setInterval(function(){
-            sec--;
-            document.getElementById('timerDisplay').innerHTML='00:'+sec;
-            if (sec < 0) {
-                clearInterval(timer);
-                alert("Time is up!")
-            }
-        }, 100);
-    }
-    document.getElementById('incorrect').addEventListener('click', function() {
-        sec -= 5;
-        document.getElementById('timerDisplay').innerHTML='00:'+sec;
-    });
-    startTimer();
-})();
+var quizCountdown = 100;
 
+function startTimer(){
+    var quizCountdown = 100;
+    console.log('timer suppose to go')
+    var timer = setInterval(function(){
+        quizCountdown--;
+        document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
+        if (quizCountdown < 0) {
+            clearInterval(timer);
+            alert("Time is up!")
+        }
+    }, 100);
+}
+document.getElementById('incorrect').addEventListener('click', function() {
+    quizCountdown -= 5;
+    document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
+});
+startTimer();
 
 function displayQuestion () {
 
