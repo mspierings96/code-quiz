@@ -1,3 +1,25 @@
+var correct = 0
+var incorrect = 0
+var questionIndex = 0
+var questionDiv = document.getElementById("questions")
+
+
+var quizTime = document.getElementById("quizTime")
+var timer = document.getElementById("start")
+var container = document.getElementById("container")
+var btnStart = document.getElementById("btn-start");
+
+var timeLeft = 100;
+var startInterval = 0;
+var penalty = 5;
+var quizCountdown = 100;
+
+btnStart.addEventListener("click", startQuiz);
+function startQuiz(){
+    
+}
+
+
 var questions = [{
 
     title: "What is the capitol of Wisconsin?",
@@ -27,24 +49,7 @@ var questions = [{
     answer: "27 days"
 }]
 
-var correct = 0
-var incorrect = 0
-var questionIndex = 0
-var questionDiv = document.getElementById("questions")
 
-
-var quizTime = document.getElementById("quizTime")
-var timer = document.getElementById("start")
-var container = document.getElementById("container")
-
-
-var timeLeft = 100;
-
-var startInterval = 0;
-
-var penalty = 5;
-
-var quizCountdown = 100;
 
 function startTimer(){
     quizCountdown = 100;
@@ -59,14 +64,13 @@ function startTimer(){
     }, 1000);
 }
 // document.getElementById('incorrect').addEventListener('click', function() {
-//     quizCountdown -= 5;
-//     document.getElementById('timerDisplay').innerHTML='00:'+quizCountdown;
 // });
-document.getElementById("start").addEventListener("click", function() {
-    document.getElementById("demo").innerHTML = "Hello World";
+document.getElementById("btn-start").addEventListener("click", function() {
+    startTimer();
+    displayQuestion();
   });
 
-startTimer();
+
 
 function displayQuestion () {
 
@@ -92,8 +96,8 @@ const btns = document.querySelectorAll('.choice-button')
 btns.forEach(btn => {
 
    btn.addEventListener('click', event => {
-        console.log( event.target.innerHTML );
-        if (event.target.innerHTML === "Madison") {
+        console.log( event.target.innerHTML, 'Answer for this question!!!',questions[questionIndex].answer );
+        if (event.target.innerHTML === questions[questionIndex].answer) {
             
             console.log("Correct!")
             correct++
@@ -106,7 +110,10 @@ btns.forEach(btn => {
             console.log("Incorrect!")
             incorrect++
             questionIndex++
+            quizCountdown -= 5;
             
+            quizTime.innerHTML='00:'+quizCountdown;
+   
             
         }   
 
@@ -120,24 +127,32 @@ btns.forEach(btn => {
             displayQuestion()
         }
         
-
+        
    });
 
 });
 
 }
 
-displayQuestion()
-
 function gameOver() {
     questionDiv.innerHTML = "";
 
-    var input = document.createElement("input");   
+    var input = document.createElement("input");
+    input.setAttribute("id", "highScore");
     questionDiv.appendChild(input); 
     var savebtn = document.createElement("button");  
-    savebtn.setAttribute("class", "save-button");
+    savebtn.setAttribute("id", "save-button");
     savebtn.innerHTML = "save";         
     questionDiv.appendChild(savebtn); 
-    addEventListener(savebtn);
+    document.getElementById("save-button").addEventListener("click", function() {
+        var highScoreToSave = document.getElementById("highScore").value
+
+        localStorage.setItem(highScoreToSave, correct);
+        window.location.replace("./scorepage.html");
+
+    
+    });
+    
+   
 }
 
