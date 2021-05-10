@@ -12,8 +12,11 @@ Built with:
 
 Website Link:
 
+https://mspierings96.github.io/code-quiz/
 
 Screenshot of Site
+
+<img src="https://github.com/mspierings96/code-quiz/blob/main/images/code-quiz.jpg" width="300">
 
 
 Contribution
