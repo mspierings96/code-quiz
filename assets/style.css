@@ -1,0 +1,50 @@
+#container {
+    position: absolute;
+    left: 30%;
+    top: 20%
+}
+
+#btn-start {
+    background-color: blue;
+    margin-left: 30%;
+    padding: 15px 32px;
+    font-size: 20px;
+    color: white;
+}
+
+#questions {
+    margin: 20px;
+}
+
+#quizTime {
+    float: right;
+}
+
+#returnHome {
+    background-color: blue;
+    position: relative;
+    padding: 15px;
+    font-size: 25px;
+    color: white;
+    top: 33%;
+    left: 50%;
+    width: auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+#clearScores {
+    background-color: blue;
+    position: relative;
+    padding: 15px;
+    font-size: 25px;
+    color: white;
+    top: 33%;
+    right: 50%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
