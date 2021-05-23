@@ -12,7 +12,7 @@ Built with:
 
 Website Link:
 
-https://mspierings96.github.io/code-quiz/
+
 
 Screenshot of Site
 
